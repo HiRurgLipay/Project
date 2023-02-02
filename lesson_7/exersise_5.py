@@ -1,19 +1,18 @@
 def func(n: str):
-    if n.isdigit():
-        if isinstance(n,float):
-            if float(n) < 0:
-                return f'Вы ввели отрицательное дробное число: {n}'
+    try:
+        number = float(n)
+        if int(number) == number:
+            if int(number) < 0:
+                return "Вы ввели отрицательное целое число"
             else:
-                return f'Вы ввели положительное дробнео число: {n}'
+                return "Вы ввели положительное целое число"
         else:
-            if int(n) < 0:
-                return f'Вы ввели положительное число: {n}'
+            if number < 0:
+                return "Вы ввели отрицательное дробное число"
             else:
-                return f'Вы ввели отрицательное число: {n}'
-    else:
-        return f'Вы ввели некорректное число: {n}'
+                return "Вы ввели положительное дробное число"
+    except:
+        return "Вы ввели некорректные данные"
 
-print(func(input('Введите дробное или целое число')))
-
-
+print(func(input("Введите число: ")))
 
